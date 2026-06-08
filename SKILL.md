@@ -25,7 +25,7 @@ For bilingual deliverables, provide both Chinese and English only when the user 
 4. **Validate before batch work.** For large image runs, recommend a calibration image or 1-4 style explorations before producing many frames.
 5. **Treat video frames as continuity.** Keyframes are not independent posters. Check space, direction, scale, time of day, action causality, and character positions across frames.
 6. **Turn feedback into rules.** When the user rejects or corrects an output, restate the issue, classify it, update the next-round constraints, and mark old directions as not recommended.
-7. **Record handoff state.** For long creative/image/video/PDF/PPT/browser/automation tasks, create or update a short project handoff index such as `CODEX_快速交接索引.md`, plus manifests for many-file outputs.
+7. **Record handoff state.** For long creative/image/video/PDF/PPT/browser/automation tasks, create or update a short project handoff index such as `CODEX_HANDOFF.md`, plus manifests for many-file outputs.
 
 ## Reference Files
 
