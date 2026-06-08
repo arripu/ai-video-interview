@@ -1,71 +1,49 @@
-# AI Video Interview / AI视频访谈
+# AI Video Interview
 
-AI Video Interview is an interview-first Codex skill for planning AI image-to-video projects before writing prompts or generating visuals.
+AI Video Interview is an interview-first workflow for planning AI image-to-video projects before writing prompts or generating visuals.
 
-AI视频访谈是一个“先访谈、再跑图”的 Codex skill。它适合在制作 AI 视频图片、Image2 关键帧、分镜、Seedance-H 提示词、品牌短片、IP 短片、产品视频和甲方创意方案前，先把需求问清楚，再进入执行。
+It helps creators, strategists, editors, designers, and AI operators clarify a video brief through structured questions, audit source assets, lock references, plan story and shots, prepare image/video prompts, and run QA before scaling into batch generation.
 
 ## What It Does
 
 - Interviews the user in layers before prompt writing.
 - Clarifies project goal, audience, platform, length, aspect ratio, and success criteria.
-- Audits logos, characters, products, packaging, props, scenes, scripts, and reference videos.
-- Separates locked assets, style references, candidate materials, old drafts, and rejected directions.
+- Audits logos, characters, products, packaging, props, scenes, scripts, music, and reference videos.
+- Separates locked assets, style references, candidate materials, process drafts, and rejected directions.
 - Designs story structure, shot lists, storyboards, keyframes, and 15-second video nodes.
 - Prepares Image2 prompts, batch keyframe JSON, Seedance-H prompts, client-facing plans, and internal execution docs.
 - Runs pre-generation QA, post-generation review, and feedback loops.
 
-## 它能做什么
+## Who It Is For
 
-- 在写提示词或生图前，先像采访一样逐层提问。
-- 梳理项目目的、受众、平台、时长、画幅和成功标准。
-- 盘点 logo、角色、产品、包装、道具、场景、脚本、参考视频等素材。
-- 区分正式锁定资产、风格参考、候选素材、旧过程稿和明确作废方向。
-- 规划故事结构、镜头表、分镜、关键帧和 15 秒视频节点。
-- 输出 Image2 提示词、批量关键帧 JSON、Seedance-H 提示词、甲方方案和内部执行文档。
-- 建立生图前质检、生图后审查和用户反馈闭环。
+- AI image-to-video creators
+- Brand film planners
+- Product video teams
+- IP character video teams
+- Social ad creators
+- Creative directors and producers
+- Prompt engineers
+- Editors and designers who need clearer pre-production briefs
 
-## Language Behavior / 语言规则
+## Language Behavior
 
-The skill follows the user's language automatically:
+The workflow follows the user's language automatically:
 
-- If the user writes in Chinese, it interviews and answers in Chinese.
 - If the user writes in English, it interviews and answers in English.
+- If the user writes in another language, it interviews and answers in that language.
 - If the user mixes languages, it follows the language of the actual request.
 - Project names, file names, brand names, and prompt terms are preserved in their original language.
-- Bilingual output is used only when requested or useful for the target tool/collaborators.
+- Bilingual output is used only when requested or useful for the target tool or collaborators.
 
-这个 skill 会自动跟随用户语言：
+## Install As A Codex Skill
 
-- 用户用中文，它就用中文访谈和回复。
-- 用户用英文，它就用英文访谈和回复。
-- 用户中英混合时，优先跟随实际任务请求的语言。
-- 项目名、文件名、品牌名、提示词术语保留原文。
-- 只有用户要求，或目标工具/跨国协作需要时，才输出中英双语。
+Install this repository as a Codex skill from GitHub. After installation, restart Codex so it can load the new skill.
 
-## Install
-
-In Codex, install this skill from GitHub:
-
-```text
-https://github.com/arripu/ai-video-interview
-```
-
-After installation, restart Codex to pick up the new skill.
-
-## Usage
-
-Explicitly call the skill with:
+Use this invocation:
 
 ```text
 $ai-video-interview
 I want to make a 30-second product video. Interview me first before writing prompts.
-```
-
-中文示例：
-
-```text
-$ai-video-interview
-我想做一个 30 秒宠物品牌视频，先不要生图，先采访我，把需求问清楚。
 ```
 
 Continue an existing project:
@@ -75,12 +53,17 @@ $ai-video-interview
 Continue this project. First read the project handoff, manifests, and approved/rejected outputs, then ask only the next necessary questions.
 ```
 
-继续旧项目：
+## Use Without Codex
 
-```text
-$ai-video-interview
-继续这个项目。先读项目交接索引、manifest 和推荐稿/作废稿记录，再问我下一步最关键的问题。
-```
+This repository is also useful outside Codex. If your AI assistant does not support Codex skills, open `PORTABLE_PROMPT.md`, copy the prompt, and paste it into your assistant before describing your project.
+
+Recommended portable workflow:
+
+1. Paste `PORTABLE_PROMPT.md` into your AI assistant.
+2. Add your project brief, files, references, or constraints.
+3. Ask the assistant to interview you first instead of writing prompts immediately.
+4. Answer the interview questions.
+5. Ask for an execution plan, shot list, Image2 prompts, video prompts, or QA checklist.
 
 ## Best For
 
@@ -96,8 +79,25 @@ $ai-video-interview
 - Client-facing creative plans
 - Feedback-driven visual revisions
 
-## Philosophy
+## Repository Structure
 
-Do not waste generations on unclear briefs. Interview first, lock assets, test small, then scale.
+```text
+.
+├── SKILL.md
+├── PORTABLE_PROMPT.md
+├── agents/
+│   └── openai.yaml
+└── references/
+    ├── 01-intake-question-ladder.md
+    ├── 02-asset-reference-audit.md
+    ├── 03-story-script-shot-design.md
+    ├── 04-style-editing-direction.md
+    ├── 05-prompt-output-formats.md
+    └── 06-qa-feedback-loop.md
+```
 
-不要在需求不清楚时浪费生图次数。先访谈，先锁资产，先小样，再批量。
+## Core Principle
+
+Do not waste generations on unclear briefs.
+
+Interview first. Lock assets. Test small. Then scale.
